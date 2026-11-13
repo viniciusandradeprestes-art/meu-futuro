@@ -1,0 +1,190 @@
+:root {
+    --azul-principal: #004aad;
+    --azul-escuro: #002d6b;
+    --vermelho-destaque: #d90429;
+    --vermelho-escuro: #9b001c;
+    --cinza-claro: #e0e0e0;
+    --cinza-medio: #8d99ae;
+    --cinza-escuro: #2b2d42;
+    --texto-claro: #f8f9fa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* Degradê em cinza solicitado */
+    background: linear-gradient(135deg, #d3d3d3 0%, #6c757d 50%, #2b2d42 100%);
+    color: var(--texto-claro);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Cabeçalho */
+.hero {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to bottom, rgba(0, 74, 173, 0.85), rgba(43, 45, 66, 0.9));
+    border-bottom: 5px solid var(--vermelho-destaque);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--cinza-claro);
+}
+
+.btn-explorar {
+    display: inline-block;
+    padding: 15px 35px;
+    background-color: var(--vermelho-destaque);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-explorar:hover {
+    background-color: var(--azul-principal);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Linha do Tempo e Cartões */
+.timeline {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.card {
+    background: rgba(30, 32, 44, 0.92);
+    padding: 40px;
+    border-radius: 15px;
+    border-left: 8px solid var(--azul-principal);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Efeito de transição ao passar o mouse */
+.card:hover {
+    transform: translateY(-8px) scale(1.01);
+    border-left-color: var(--vermelho-destaque);
+    box-shadow: 0 20px 40px rgba(217, 4, 41, 0.25);
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 18px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: 6px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.badge.azul {
+    background-color: var(--azul-principal);
+    color: #fff;
+}
+
+.badge.vermelho {
+    background-color: var(--vermelho-destaque);
+    color: #fff;
+}
+
+.badge.misto {
+    background: linear-gradient(90deg, var(--azul-principal), var(--vermelho-destaque));
+    color: #fff;
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #d1d5db;
+}
+
+.card strong {
+    color: #ffffff;
+    border-bottom: 2px solid var(--vermelho-destaque);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #1a1b26;
+    color: var(--cinza-medio);
+    font-size: 0.9rem;
+    border-top: 3px solid var(--azul-principal);
+}
+
+/* --- Animações de Surgimento --- */
+.fade-in {
+    animation: surgirTopo 1.2s ease-out forwards;
+}
+
+@keyframes surgirTopo {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estado inicial antes de rolar a página */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Estado ativado pelo JavaScript */
+.reveal.ativo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsividade para celulares */
+@media (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    .card {
+        padding: 25px;
+    }
+}
